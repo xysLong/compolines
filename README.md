@@ -2,7 +2,7 @@
 
 A browser-based tool for collecting perceived composition lines on images. Participants view images one at a time on a tablet and draw the lines they consider most important for the composition, either as straight lines or as freehand curves. Each line is saved as a cubic Bézier curve in the pixel coordinates of the original image, together with its drawing mode and a timestamp.
 
-Developed at the [Lab for Cognitive Research in Art History (CReA)](https://crea.univie.ac.at/), Department of Art History, University of Vienna.
+Developed at the [Lab for Cognitive Research in Art History (CReA)](https://crea.univie.ac.at/), Department of Art History, University of Vienna. See the lab's [methods](https://crea.univie.ac.at/projects/methods) and [composition](https://crea.univie.ac.at/projects/composition) pages.
 
 > Long, Xingyu, Chao-Shan Hsu, Regina Balázs, Ádám Salomvári, Sophia Kury, and Raphael Rosenberg. **Unsichere Blicke, feste Striche: Kompositionszeichnen als Verhaltenserhebung für empirische Bildwissenschaft.** Poster accepted for *DHd 2027: Mind the Gap! – Wissen, Unsicherheit und Verantwortung*, Marburg, March 1–5, 2027.
 
