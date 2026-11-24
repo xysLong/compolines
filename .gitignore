@@ -1,0 +1,7 @@
+output/*
+!output/.gitkeep
+stimuli/*
+!stimuli/.gitkeep
+__pycache__/
+.venv/
+.DS_Store

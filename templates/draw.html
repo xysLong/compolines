@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>compolines – {{ stimulus_order }}/{{ total }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="draw-screen">
+
+    <div class="toolbar top-toolbar">
+        <div class="progress-info">Bild / Image <strong>{{ stimulus_order }}</strong> / <strong>{{ total }}</strong></div>
+        <div class="mode-toggle">
+            <button id="btn-straight" class="btn btn-mode active" onclick="setMode('straight')">Gerade / Straight</button>
+            <button id="btn-curved" class="btn btn-mode" onclick="setMode('curved')">Kurve / Curve</button>
+        </div>
+    </div>
+
+    <div class="canvas-container" id="canvas-container">
+        <canvas id="drawing-canvas"></canvas>
+    </div>
+
+    <div class="toolbar bottom-toolbar">
+        <button class="btn btn-secondary" onclick="undoLine()">Rückgängig / Undo</button>
+        <button class="btn btn-secondary" onclick="clearAll()">Alles löschen / Clear all</button>
+        <button class="btn btn-primary" onclick="nextImage()">
+            {% if stimulus_order == total %}Fertig / Finish{% else %}Weiter / Next{% endif %}
+        </button>
+    </div>
+
+    <script>
+        const STIMULUS_URL = "{{ url_for('serve_stimulus', filename=stimulus_filename) }}";
+        const SAVE_URL = "{{ url_for('save') }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/drawing.js') }}"></script>
+</body>
+</html>

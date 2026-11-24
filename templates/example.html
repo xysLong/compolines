@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compolines – Beispiel / Example</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="example-screen">
+    <div class="example-image-wrap">
+        <img src="{{ url_for('serve_example', filename='last-supper.png') }}"
+             alt="Example: composition lines drawn by five viewers on Nicholas of Verdun, The Last Supper (Verdun Altar, 1181, Klosterneuburg)">
+    </div>
+    <div class="example-toolbar">
+        <span class="example-caption">Beispiel / Example</span>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Zurück / Back</a>
+        <a href="{{ url_for('draw') }}" class="btn btn-primary">Einzeichnung beginnen / Start drawing</a>
+    </div>
+</body>
+</html>

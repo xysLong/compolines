@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compolines</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="start-screen">
+    <div class="start-container">
+        <p class="app-title">compolines</p>
+
+        <ul class="intro-text">
+            <li><strong>Kunsthistoriker:innen beschreiben die Komposition eines Bildes oft über seine wichtigsten (gedachten) Linien.</strong>
+                <em>Art historians often describe the composition of an image through its most important (imagined) lines.</em></li>
+            <li>Ihnen werden nacheinander <strong>{{ num_stimuli }}</strong> Bilder gezeigt. Bitte zeichnen Sie auf jedem Bild die Linien ein, die Ihrer Ansicht nach <strong>für die Komposition am wichtigsten</strong> sind. Die Anzahl ist nicht begrenzt.
+                <em>You will see {{ num_stimuli }} images one after another. On each image, please draw the lines you consider most important for the composition. There is no limit to the number of lines.</em></li>
+            <li>Es gibt zwei Modi: <strong>gerade Linien</strong> und <strong>Kurven</strong>. Wählen Sie jeweils den Modus, der Ihrer beabsichtigten Linie am besten entspricht.
+                <em>There are two modes: straight lines and curves. Choose the mode that best matches the line you intend to draw.</em></li>
+            <li>Bitte keine zusätzlichen Markierungen wie Einkreisen oder Ankreuzen von Bildelementen.
+                <em>Please do not add other marks such as circling or crossing out parts of the image.</em></li>
+        </ul>
+
+        {% if warning %}
+        <div class="warning-banner">{{ warning }}</div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('start') }}">
+            <div class="form-group">
+                <label for="participant_id">Teilnehmer-ID / Participant ID</label>
+                <input type="text" id="participant_id" name="participant_id"
+                       value="{{ existing_id or '' }}"
+                       autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                       required>
+            </div>
+            <input type="hidden" name="overwrite" id="overwrite-field" value="0">
+            <div class="button-row">
+                <button type="submit" class="btn btn-primary">Weiter / Continue</button>
+                {% if existing_id %}
+                <button type="submit" class="btn btn-danger"
+                        onclick="document.getElementById('overwrite-field').value='1'">
+                    Vorhandene Daten überschreiben / Overwrite existing data
+                </button>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+</body>
+</html>

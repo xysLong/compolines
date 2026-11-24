@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compolines – Fertig / Done</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="start-screen">
+    <div class="start-container done-container">
+        <h1>Vielen Dank! / Thank you!</h1>
+        <p class="intro-text">
+            Die Einzeichnung ist abgeschlossen. Bitte geben Sie das Tablet zurück.<br>
+            <em>The drawing session is complete. Please hand the tablet back.</em>
+        </p>
+        {% if participant_id %}<p class="participant-note">ID: <strong>{{ participant_id }}</strong></p>{% endif %}
+        <div class="button-row done-row">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Neue Sitzung / New session</a>
+        </div>
+    </div>
+</body>
+</html>
